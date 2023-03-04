@@ -12,7 +12,7 @@ class TournamentModelViewSet(ModelViewSet):
 
     queryset = Tournament.objects.all()
     serializer_class = TournamentSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 
 class ChampionListView(ListAPIView):

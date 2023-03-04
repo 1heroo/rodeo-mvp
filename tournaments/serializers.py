@@ -17,6 +17,11 @@ class TournamentSerializer(serializers.ModelSerializer):
         model = Tournament
         fields = '__all__'
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['participants'] = ParticipantSerializer(instance.participants, many=True, context=self.context).data
+        return representation
+
 
 class TournamentDetailSerializer(TournamentSerializer):
 
